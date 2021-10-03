@@ -3,11 +3,12 @@ from psycopg2 import Error
 from config import config
 
 try:
+    # busca a conexao com o banco de dados postgres
     params = config()
     connection = psycopg2.connect(**params)
 
     cursor = connection.cursor()
-    # SQL query to create a new table
+    # sql responsavel por criar a tabela
     create_table_query = '''CREATE TABLE auditoria
           (so text,
           origem text,
@@ -16,11 +17,11 @@ try:
           sensor_ram real,
           pub_date character varying,
           pub_time real); '''
-    # Execute a command: this creates a new table
+    # executa o comando para criar a nova tabela
     cursor.execute(create_table_query)
     connection.commit()
     print("Tabela Criada com Sucesso no PostgreSQL ")
-
+    # retorna erro em caso de problemas de conexao
 except (Exception, Error) as error:
     print("Erro ao Conectar no PostgreSQL", error)
 finally:
