@@ -6,25 +6,25 @@ def connect():
     """ Conectando no Servidor de Banco de Dados PostgreSQL """
     conn = None
     try:
-        # read connection parameters
+        # lendo os parametros de conexao
         params = config()
 
-        # connect to the PostgreSQL server
+        # conectando no banco de dados
         print('Conectando no Banco de Dados PostgreSQL...')
         conn = psycopg2.connect(**params)
 
-        # create a cursor
+        # criando um cursor
         cur = conn.cursor()
 
-        # execute a statement
+        # executando uma demonstracao
         print('A versão do banco de dados é:')
         cur.execute('SELECT version()')
 
-        # display the PostgreSQL database server version
+        # exibir a versao do servidor de banco de dados PostgreSQL
         db_version = cur.fetchone()
         print(db_version)
 
-        # close the communication with the PostgreSQL
+        # fecha a comunicacao com o PostgreSQL
         cur.close()
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
