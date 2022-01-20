@@ -9,32 +9,18 @@ x = response.json()
   
 if x["cod"] != "404": 
   
-    
-    
     y = x["main"] 
   
-    
-    
     current_temperature = y["temp"] 
-  
-    
     
     current_pressure = y["pressure"] 
-  
-    
-    
+   
     current_humidiy = y["humidity"] 
-  
-    
-    
+   
     z = x["weather"] 
   
-    
-    
-    
     weather_description = z[0]["description"] 
   
-    
     print(" Temperature (in kelvin unit) = " +
                     str(current_temperature) + 
           "\n atmospheric pressure (in hPa unit) = " +
@@ -43,6 +29,6 @@ if x["cod"] != "404":
                     str(current_humidiy) +
           "\n description = " +
                     str(weather_description)) 
-  
 else: 
-    print(" City Not Found ")
+
+    print(" Cidade Nao Encontrada ")
