@@ -1,4 +1,5 @@
 import requests, json 
+
 api_key = "3105bc8695e063633b9243c87efa0c09"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Qual Sua Cidade : ") 
